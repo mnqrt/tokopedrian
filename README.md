@@ -49,4 +49,8 @@ Membuat aplikasi tanpa *virtual environment* tetap dapat dijalankan namun lebih 
 
 >4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
-MVC adalah Model View Controller
+1.MVC adalah Model View Controller, MVC merupakan pattern dari desain framework yang memisahkan aplikasi menjadi 3 komponen yaitu model, view, dan controller. MVC seringkali digunakan untuk membuat aplikasi yang scalable dan extensible.
+
+2.MVT adalah Model View Template, MVC merupakan pattern desain yang cukup mirip dengan MVC, hal yang membedakan mereka adalah controllernya telah diimplementasikan sehingga tugas kita hanyalah utuk membuat template. MVC memungkinkan pengembangan yang lebih cepat dan scalable namun bergantung kepada framework yang digunakan
+
+3.MVVM adalah Model View ViewModel, MVVM merupakan pattern desain yang terfokuskan pada pembedaan UI dengan logic aplikasi kita. Controller MVVM terletak pada ViewModel. 
