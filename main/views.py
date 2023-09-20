@@ -12,6 +12,7 @@ def show_main(request):
     context = {
         'name': 'Adrian', 
         'class': 'PBP D', 
+        'banyak_data': len(products),
         'products': products
     }
 

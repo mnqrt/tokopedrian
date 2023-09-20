@@ -1,6 +1,47 @@
 # :shopping_cart: Tokopedrian :shopping: :green_book:
 `Jalan jalan ke balikpapan, kalau shopping di Tokopedrian!`
 
+## Tugas Individu 3
+
+>1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+ - [x] Membuat Form (`forms.py`)
+Terdapat properti `model = Product`, hal ini berguna agar ketika kita ingin menyimpan data dari form, maka akan berupa objek `Product`. `fields = ["name", "price", "amount", "description"]` berisikan list dari properti apa saja yang perlu untuk di isi dalam form. Setelahnya, perlu dibentuk kerangka untuk melakukan rendering pada form, disini saya menamakannya sebagai `create_product.html` yang terletak didalam `templates`. 
+
+- [x]  Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
+
+Pada `views.py`, kita akan membuat fungsi untuk menunjukkan data dalam bentuk `XML` dan `JSON`. Hal ini dapat diimplementasikan dengan melakukan return `HTTPResponse` dengan memberi constraint untuk menberi spesifikasi tipe data hasil query. Untuk `XML by ID` ataupun `JSON by ID`, implementasinya mirip namun terdapat modifikasi pada data yang ingin ditampilkan, yaitu dengan menggunakan `filter(pk=id)`. 
+
+- [x] Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+
+Terdapat lima fungsi (termasuk `show_main`) yang akan diimpor pada urls.py agar dapat digunakan dan perlu untuk dispesifikasikan `path url` pada list `urlpatterns` nya. Dapat dilihat bahwa untuk path `XML by ID` ataupun `JSON by ID`, kita menggunakan dynamic routing untuk memberikan data sesuai dengan input `id` dari user pada url.
+
+>2. Menjawab beberapa pertanyaan berikut pada README.md pada root folder.
+
+- [x] Apa perbedaan antara form POST dan form GET dalam Django?
+Ketika kita melakukan `GET` method, data yang dikirim dapat dilihat pada `URL` yang dituju sehingga penggunaan `GET` method sebaiknya tidak digunakan untuk `login` yang membutuhkan password ataupun informasi yang bersifat rahasia, perlu diperhatikan juga bahwa apabila data yang dikirimkan sangat panjang, `URL` yang dihasilkan juga akan sangat panjang (method `GET` tidak boleh melebihi 2047 karakter). Pada `POST` method, pengiriman data dilakukan melalui body request pada `HTTP` sehingga datanya tidak terlihat pada `URL`, hal ini mengakibatkan POST untuk tidak memiliki batasan pada panjang dari data yang akan disubmit. Namun, hal ini mengakibatkan `POST` method memiliki performa lebih lambat dibandingkan `GET` method.
+
+- [x] Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+Pada `HTML`, pengiriman data lebih terfokus kepada bagaimana data ditampilkan (script, style, dan lain-lainnya). Hal ini mengakibatkan penggunaan `HTML` yang lebih sesuai apabila datanya akan ditampilkan ke manusia karena jauh lebih mudah untuk dibaca masyarakat awam dibandingkan `XML` dan `JSON`.
+
+Pada `XML`, data ditampilkan agar mudah dibaca oleh manusia ataupun mesin. struktur data pada `XML` mirip dengan `HTML` dimana setiap node memiliki banyak nilai ataupun properti.
+
+
+Data pada `JSON` ditampilkan dalam bentuk yang mirip dengan `Dictionary` dan `list` pada python, hal ini membuat file `JSON` mudah untuk dibaca oleh berbagai bahasa pemrograman.
+
+- [x] Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+`JSON` mudah untuk dibaca berbagai bahasa pemrograman dan penulisan data pada file `JSON` yang lebih simpel dibandingkan `XML` membuatnya lebih sering digunakan.
+
+>3. Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md
+<img src='images/postmanXML.png' width=50%>
+<img src='images/postmanXMLID.png' width=50%>
+<img src='images/postmanJSON.png' width=50%>
+<img src='images/postmanJSONID.png' width=50%>
+<img src='images/postmanHTML.png' width=50%>
+ 
+
+-----
+
 ## Tugas Individu 2
 >1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
