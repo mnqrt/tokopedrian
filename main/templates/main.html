@@ -36,6 +36,16 @@
     </button>
 </a>
 
+<br />
+
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
+<a href="{% url 'main:logout' %}">
+    <button>
+        Logout
+    </button>
+</a>
+
 <h2>Nama:</h2>
 <p>{{name}}</p>
 
