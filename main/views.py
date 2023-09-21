@@ -84,3 +84,25 @@ def show_json(request):
 def show_json_by_id(request, id):
     data = Product.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+
+'''Tugas 4----------------------------------------------------------------------------------------------------------------'''
+
+def delete_product(request, id):
+    current_product = Product.objects.get(pk=id)
+    current_product.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+def add_amount(request, id):
+    current_product = Product.objects.get(pk=id)
+    current_product.amount += 1
+    current_product.save()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+def decrement_amount(request, id):
+    current_product = Product.objects.get(pk=id)
+    current_product.amount -= 1
+    if current_product.amount == 0 :
+        return delete_product(request, id)
+    current_product.save()
+    return HttpResponseRedirect(reverse('main:show_main'))

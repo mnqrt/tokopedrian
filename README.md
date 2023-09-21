@@ -1,11 +1,42 @@
 # :shopping_cart: Tokopedrian :shopping: :green_book:
 `Jalan jalan ke balikpapan, kalau shopping di Tokopedrian!`
 
+## Tugas Individu 4.
+>1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+- [x] Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
+Pada `views.py`, saya membuat fungsi `register(request)`, `login(request)`, `logout(request)`  untuk melakukan registrasi, login, dan logout.  Untuk fungsi `logout`, saya menghapus cookie setelah melaksanakan logout. Untuk fungsi registrasi dan login, saya membuat masing-masing `html` pagenya. Karena adanya autentikasi, saya perlu melakukan restriksi sehingga hanya pengguna yang telah melakukan login yang dapat masuk ke main, data login kemudian disimpan didalam `cookies`.
+
+- [x] Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
+Saya melakukan registrasi dua kali dan pada tiap pengguna, saya menambahkan data produk baru.
+
+- [x] Menghubungkan model Item dengan User.
+Karena adanya autentikasi, pada class `Product` saya menambahkan properti `user` dengan menggunakan `Foreignkey`. Hal ini saya lakukan agar setiap `Product` berhubungan kepada `user`.
+
+- [x] Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
+Setiapkali seorang `user` melakukan `login`, kita akan membuat cookie `last_login` yang berisikan `string` dengan data waktu login. Informasi `last_login` ini kemudian akan dihapus ketika user melakukan `logout`. Agar dapat ditampilkan pada `main.html`, informasi `last_login` dapat disimpan pada variabel `context` pada fungsi `show_main`.
+
+>2. Menjawab beberapa pertanyaan berikut pada README.md pada root folder (silakan modifikasi README.md yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas).
+
+- [x] Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
+UserCreationForm merupakan fungsi bawaan yang memudahkan implementasi untuk membuat formulir. Namun, penggunaan `UserCreationForm` mungkin terbatas pada formulir yang cukup kompleks, hal ini juga membatasi desain dari `UserCreationForm`. 
+
+- [x] Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+Autentikasi merupakan proses untuk melakuka verifikasi pada identitas user yang ingin login seperti `username` dan `password`, sedangkan otorisasi merupakan proses yang menentukan tindakan apa saja yang dapat dilakukan oleh user tertentu ketika mengakses aplikasi. Sebagai contoh, untuk mengakses halaman utama, kita perlu melakukan `login`. Tanpa ada kedua hal ini, siapa saja dapat mengakses data yang mungkin seharusnya bersifat rahasia.
+
+- [x] Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+`Cookies` adalah data yang berada pada client, `cookies` menyimpan data dengan ukuran kecil, data tersebut berisi informasi login. Django menyimpan ID sesi login unik pada `cookies`. `cookies` ini kemudian akan dikirimkan oleh browser setiap kali melakukan request agar server dapat mengidentifikasi `user` dari `cookies` 
+
+- [x] Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+Dengan adanya enkripsi yang baik dan aman dari `reverse engineering`, penggunaan cookies dapat dikatakan aman. Lebih lanjut, dianjurkan penggunaan HTTPS agar dapat mencegah adanya `session hijacking`. Untuk memastikan keamanan lebih mendalam, penggunaan `{% csrf_token %}` merupakan salah satu best practice. 
+
+-----
+
 ## Tugas Individu 3
 
 >1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
- - [x] Membuat Form (`forms.py`)
+- [x] Membuat Form (`forms.py`)
 Terdapat properti `model = Product`, hal ini berguna agar ketika kita ingin menyimpan data dari form, maka akan berupa objek `Product`. `fields = ["name", "price", "amount", "description"]` berisikan list dari properti apa saja yang perlu untuk di isi dalam form. Setelahnya, perlu dibentuk kerangka untuk melakukan rendering pada form, disini saya menamakannya sebagai `create_product.html` yang terletak didalam `templates`. 
 
 - [x]  Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
@@ -39,7 +70,6 @@ Data pada `JSON` ditampilkan dalam bentuk yang mirip dengan `Dictionary` dan `li
 <img src='images/postmanJSONID.png' width=50%>
 <img src='images/postmanHTML.png' width=50%>
  
-
 -----
 
 ## Tugas Individu 2
