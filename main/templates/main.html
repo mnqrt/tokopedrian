@@ -1,76 +1,99 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <h1 style="color: rgb(77, 182, 75);">Tokopedrian</h1>
+    <h2>Beli anting dengan durian, kalau shopping di Tokopedrian!</h2>
+    <h3>Saved Products: {{banyak_data}}</h3>
 
-<h1>Belanja di Tokopedrian!</h1>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-<h2>Terdapat sebanyak {{banyak_data}} data yang telah disimpan</h2>
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Amount</th>
-        <th>Description</th>
-        <th>Date Added</th>
-        <th>Add</th>
-        <th>Dec</th>
-        <th style="color:red">Delete</th>
-    </tr>
+        th {
+            background-color: #c9f3da;
+        }
 
-    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+        tr:nth-child(even) {
+            background-color: #f1f0f0;
+        }
 
-    {% for product in products %}
+        tr:hover {
+            background-color: #e3e3e3;
+        }
+    </style>
+
+    <table>
         <tr>
-            <td>{{product.name}}</td>
-            <td>{{product.price}}</td>
-            <td>{{product.amount}}</td>
-            <td>{{product.description}}</td>
-            <td>{{product.date_added}}</td>
-            <td>
-                <form method="post" action="{% url 'main:add_amount' product.id %}">
-                    {% csrf_token %}
-                    <button type="submit">+</button>
-                </form>
-            </td>
-            <td>
-                <form method="post" action="{% url 'main:decrement_amount' product.id %}">
-                    {% csrf_token %}
-                    <button type="submit">-</button>
-                </form>
-            </td>
-            <td>
-                <form method="post" action="{% url 'main:delete_product' product.id %}">
-                    {% csrf_token %}
-                    <button type="submit">DEL</button>
-                </form>
-            </td>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Date Added</th>
+            <th>Add</th>
+            <th>Dec</th>
+            <th style="color:rgb(245, 77, 35)">Delete</th>
         </tr>
-    {% endfor %}
-</table>
 
-<br />
+        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
 
-<a href="{% url 'main:create_product' %}">
-    <button>
-        Add New Product
-    </button>
-</a>
+        {% for product in products %}
+            <tr>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.amount}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.date_added}}</td>
+                <td>
+                    <form method="post" action="{% url 'main:add_amount' product.id %}">
+                        {% csrf_token %}
+                        <button type="submit" style="width: 100%;">+</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="{% url 'main:decrement_amount' product.id %}">
+                        {% csrf_token %}
+                        <button type="submit" style="width: 100%;">-</button>
+                    </form>
+                </td>
+                <td >
+                    <form method="post" action="{% url 'main:delete_product' product.id %}">
+                        {% csrf_token %}
+                        <button type="submit" style="color:rgb(245, 77, 35); width: 100%;">DEL</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
 
-<br />
+    <br />
 
-<h5>Sesi terakhir login: {{ last_login }}</h5>
+    <a href="{% url 'main:create_product' %}">
+        <button>
+            Add New Product
+        </button>
+    </a>
 
-<a href="{% url 'main:logout' %}">
-    <button>
-        Logout
-    </button>
-</a>
+    <br />
 
-<h2>Nama:</h2>
-<p>{{name}}</p>
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
 
-<h2>Class:</h2>
-<p>{{class}}</p>
+    <a href="{% url 'main:logout' %}">
+        <button>
+            Logout
+        </button>
+    </a>
 
+    <h2>Nama:</h2>
+    <p>{{name}}</p>
+
+    <h2>Class:</h2>
+    <p>{{class}}</p>
 {% endblock content %}

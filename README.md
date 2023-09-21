@@ -1,5 +1,5 @@
 # :shopping_cart: Tokopedrian :shopping: :green_book:
-`Tiga pilot bawa durian, kalau shopping di Tokopedrian!`
+`Beli anting dengan durian, kalau shopping di Tokopedrian!`
 
 ## Tugas Individu 4.
 >1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
