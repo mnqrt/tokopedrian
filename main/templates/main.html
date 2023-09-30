@@ -1,77 +1,104 @@
 {% extends 'base.html' %}
 
+
+
 {% block content %}
     <h1 style="color: rgb(77, 182, 75);">Tokopedrian</h1>
     <h2>Beli anting dengan durian, kalau shopping di Tokopedrian!</h2>
-    <h3>Saved Products: {{banyak_data}}</h3>
+    <h3>Saved Products: {{ banyak_data }}</h3>
+
+    <div class="row">
+        {% for product in products %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 {% if forloop.last %}last-product{% endif %}">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">{{ product.name }}</h5>
+                            <div class="button-group">
+                                <form method="post" action="{% url 'main:add_amount' product.id %}" class="d-inline-block">
+                                    {% csrf_token %}
+                                    <button class="btn btn-sm cust-button">+</button>
+                                </form>
+                                <form method="post" action="{% url 'main:decrement_amount' product.id %}" class="d-inline-block">
+                                    {% csrf_token %}
+                                    <button class="btn btn-sm cust-button">-</button>
+                                </form>
+                                <form method="post" action="{% url 'main:delete_product' product.id %}" class="d-inline-block">
+                                    {% csrf_token %}
+                                    <button class="btn btn-sm delete-button">Delete</button>
+                                </form>
+                                <form method="post" action="{% url 'main:edit_product' product.id %}" class="d-inline-block">
+                                    {% csrf_token %}
+                                    <button class="btn btn-sm edit-button">Edit</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted small">Jumlah: {{ product.amount }}</p>
+                            <p class="text-muted small">Harga: {{ product.price }}</p>
+                            <p class="card-text">{{ product.description }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Added on: {{ product.date_added }}</small>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
 
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .cust-button{
+            width: 30px;
         }
 
-        th, td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: left;
+        .btn{
+            height: 25px;
+            border: 1px solid rgba(56, 83, 94, 0.5);
+            text-align: center;
         }
 
-        th {
-            background-color: #c9f3da;
+        .btn:hover {
+            border: 1px solid rgba(56, 83, 94, 0.3);
         }
 
-        tr:nth-child(even) {
-            background-color: #f1f0f0;
+        .delete-button{
+            border: 1px solid rgba(233, 32, 42, 0.5);
+            color: rgba(233, 32, 42);
         }
 
-        tr:hover {
-            background-color: #e3e3e3;
+        .delete-button:hover {
+            border: 1px solid rgba(233, 32, 42, 0.3);
+            color: rgba(233, 32, 42, 0.7);
+        }
+
+        .edit-button{
+            border: 1px solid rgba(230, 203, 0, 0.5);
+            color: rgba(230, 203, 0);
+        }
+
+        .edit-button:hover {
+            border: 1px solid rgba(230, 203, 0, 0.3);
+            color: rgba(230, 203, 0, 0.7);
+        }
+
+        .last-product{
+            background-color: aquamarine;
+        }
+
+        .card-body p {
+            margin-bottom: 3px; /* Adjust this value to control the spacing */
+        }
+
+        .row {
+            @include media-breakpoint-only(lg) {
+                column-count: 4;
+            }
+            @include media-breakpoint-only(xl) {
+                column-count: 5;
+            }
         }
     </style>
-
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Amount</th>
-            <th>Description</th>
-            <th>Date Added</th>
-            <th>Add</th>
-            <th>Dec</th>
-            <th style="color:rgb(245, 77, 35)">Delete</th>
-        </tr>
-
-        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
-        {% for product in products %}
-            <tr>
-                <td>{{product.name}}</td>
-                <td>{{product.price}}</td>
-                <td>{{product.amount}}</td>
-                <td>{{product.description}}</td>
-                <td>{{product.date_added}}</td>
-                <td>
-                    <form method="post" action="{% url 'main:add_amount' product.id %}">
-                        {% csrf_token %}
-                        <button type="submit" style="width: 100%;">+</button>
-                    </form>
-                </td>
-                <td>
-                    <form method="post" action="{% url 'main:decrement_amount' product.id %}">
-                        {% csrf_token %}
-                        <button type="submit" style="width: 100%;">-</button>
-                    </form>
-                </td>
-                <td >
-                    <form method="post" action="{% url 'main:delete_product' product.id %}">
-                        {% csrf_token %}
-                        <button type="submit" style="color:rgb(245, 77, 35); width: 100%;">DEL</button>
-                    </form>
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
+    
+    
 
     <br />
 
@@ -92,8 +119,8 @@
     </a>
 
     <h2>Nama:</h2>
-    <p>{{name}}</p>
+    <p>{{ name }}</p>
 
     <h2>Class:</h2>
-    <p>{{class}}</p>
+    <p>{{ class }}</p>
 {% endblock content %}

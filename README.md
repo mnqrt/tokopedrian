@@ -1,6 +1,21 @@
 # :shopping_cart: Tokopedrian :shopping: :green_book:
 `Beli anting dengan durian, kalau shopping di Tokopedrian!`
 
+## Tugas Individu 5.
+>1. Menjawab beberapa pertanyaan berikut pada README.md pada root folder (silakan modifikasi README.md yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas).
+
+- [x] Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+Saya akan mengasumsikan bahwa yang dimaksud adalah **Selector**. Element selector berguna untuk menambah styling pada elemen dengan tag (contoh: `<p>`, `<div>`) tertentu. Sehingga ini digunakan ketika kita ingin mengaplikasikan styling pada setiap elemen dengan tag yang sama. ID selector berguna untuk menambah styling pada elemen dengan id (unik) tertentu. Sehingga ini digunakan untuk menargetkan elemen yang spesifik (dimulai dengan `#`). Class selector berguna untuk menambahkan styling pada elemen yang memiliki suatu class, class ini dapat dimiliki oleh banyak elemen. Sehingga ini digunakan ketika kita menginginkan beberapa elemen untuk memiliki styling yang sama (dimulai dengan `.`).
+
+- [x] Jelaskan HTML5 Tag yang kamu ketahui.
+Terdapat banyak contoh HTML5 Tag, namun saya akan membahas tag yang saya pernah gunakan dan ketahui. `<img>` berguna untuk menyisipkan gambar. `<a>` berguna untuk memasukkan link yang akan diarahkan ketika dipencet user. `<nav>` berguna untuk membuat daftar navigasi. `<title>` memberikan judul yang akan ditampilkan pada tab. `<style>` dan `<script>` untuk menggunakan CSS dan JavaScript eksternal. `<h1>`, `<h2>`, ... berguna untuk membuat judul dengan ukuran berbeda. `<p>` berguna untuk membuat paragraf. `<ul>`, `<ol>`, `<li>` berguna untuk menampilkan daftar(list) baik secara terurut ataupun tak terurut. `<form>` dan `<input>` untuk membuat formulir dan menerima input dari user.
+
+- [x] Jelaskan perbedaan antara margin dan padding.
+Margin merupakan gap diluar border sedangkan Padding merupakan gap antara border dan konten. 
+
+- [x] Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+Menurut saya, salah satu perbedaan besar diantara Tailwind dan Bootstrap adalah Tailwind hanya akan membentuk file CSS berdasarkan penggunaan styling yang kita pakai. Sedangkan Bootstrap sudah memiliki file CSS dengan ukuran besar karena sebelumnya telah terdapat banyak komponen yang telah didefinisikan. Penggunaan Tailwind CSS juga memerlukan pemahaman yang cukup mendalam mengenai CSS dan bagaimana menggabungkan kelas utilitas tersebut, sedangkan Bootstrap cukup ramah kepada pemula sebab telah banyak komponen yang telah didefinisikan sebelumnya. Dari perbedaan ini, Penggunaan Bootstrap akan lebih efisien jika kita ingin melakukan pengembangan dengan cepat tanpa memikirkan ukuran file CSS. Namun, jika kita ingin meminimalisir penggunaan file CSS yang tidak diperlukan, maka sebaiknya menggunakan Tailwind.
+
 ## Tugas Individu 4.
 >1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 

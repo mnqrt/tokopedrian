@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="container mt-5">
-    <h1>Add New Product</h1>
+    <h1>Edit Product</h1>
 
     <form method="POST" class="mt-3">
         {% csrf_token %}
@@ -26,7 +27,7 @@
             {{ form.description }}
         </div>
 
-        <button type="submit" class="btn btn-primary">Add Product</button>
+        <button type="submit" class="btn btn-primary">Edit Product</button>
     </form>
 </div>
 
