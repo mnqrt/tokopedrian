@@ -2,8 +2,7 @@
 `Beli anting dengan durian, kalau shopping di Tokopedrian!`
 
 <details>
-<summary>
-## Tugas Individu 5.
+<summary>Tugas Individu 5
 >1. Menjawab beberapa pertanyaan berikut pada README.md pada root folder (silakan modifikasi README.md yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas).
 
 - [x] Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
