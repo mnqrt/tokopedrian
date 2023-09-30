@@ -1,7 +1,8 @@
 # :shopping_cart: Tokopedrian :shopping: :green_book:
 `Beli anting dengan durian, kalau shopping di Tokopedrian!`
 
-## Tugas Individu 5.
+<details>
+<summary>## Tugas Individu 5.
 >1. Menjawab beberapa pertanyaan berikut pada README.md pada root folder (silakan modifikasi README.md yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas).
 
 - [x] Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
@@ -15,8 +16,10 @@ Margin merupakan gap diluar border sedangkan Padding merupakan gap antara border
 
 - [x] Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
 Menurut saya, salah satu perbedaan besar diantara Tailwind dan Bootstrap adalah Tailwind hanya akan membentuk file CSS berdasarkan penggunaan styling yang kita pakai. Sedangkan Bootstrap sudah memiliki file CSS dengan ukuran besar karena sebelumnya telah terdapat banyak komponen yang telah didefinisikan. Penggunaan Tailwind CSS juga memerlukan pemahaman yang cukup mendalam mengenai CSS dan bagaimana menggabungkan kelas utilitas tersebut, sedangkan Bootstrap cukup ramah kepada pemula sebab telah banyak komponen yang telah didefinisikan sebelumnya. Dari perbedaan ini, Penggunaan Bootstrap akan lebih efisien jika kita ingin melakukan pengembangan dengan cepat tanpa memikirkan ukuran file CSS. Namun, jika kita ingin meminimalisir penggunaan file CSS yang tidak diperlukan, maka sebaiknya menggunakan Tailwind.
-
-## Tugas Individu 4.
+</details>
+---
+<details>
+<summary>## Tugas Individu 4.
 >1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
 - [x] Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
@@ -44,10 +47,10 @@ Autentikasi merupakan proses untuk melakuka verifikasi pada identitas user yang 
 
 - [x] Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
 Dengan adanya enkripsi yang baik dan aman dari `reverse engineering`, penggunaan cookies dapat dikatakan aman. Lebih lanjut, dianjurkan penggunaan HTTPS agar dapat mencegah adanya `session hijacking`. Untuk memastikan keamanan lebih mendalam, penggunaan `{% csrf_token %}` merupakan salah satu best practice. 
-
+</details>
 -----
-
-## Tugas Individu 3
+<details>
+<summary>## Tugas Individu 3
 
 >1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
@@ -84,10 +87,10 @@ Data pada `JSON` ditampilkan dalam bentuk yang mirip dengan `Dictionary` dan `li
 <img src='images/postmanJSON.png' width=50%>
 <img src='images/postmanJSONID.png' width=50%>
 <img src='images/postmanHTML.png' width=50%>
- 
+ </details>
 -----
-
-## Tugas Individu 2
+<details>
+<summary>## Tugas Individu 2
 >1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
  - [x] Membuat sebuah proyek Django baru.
@@ -140,3 +143,4 @@ Membuat aplikasi tanpa *virtual environment* tetap dapat dijalankan namun lebih 
 2.MVT adalah Model View Template, MVC merupakan pattern desain yang cukup mirip dengan MVC, hal yang membedakan mereka adalah controllernya telah diimplementasikan sehingga tugas kita hanyalah utuk membuat template. MVC memungkinkan pengembangan yang lebih cepat dan scalable namun bergantung kepada framework yang digunakan
 
 3.MVVM adalah Model View ViewModel, MVVM merupakan pattern desain yang terfokuskan pada pembedaan UI dengan logic aplikasi kita. Controller MVVM terletak pada ViewModel. 
+</details>
