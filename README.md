@@ -2,7 +2,7 @@
 `Beli anting dengan durian, kalau shopping di Tokopedrian!`
 
 <details>
-<summary>Tugas Individu 5
+<summary>Tugas Individu 5</summary>
 >1. Menjawab beberapa pertanyaan berikut pada README.md pada root folder (silakan modifikasi README.md yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas).
 
 - [x] Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
@@ -17,9 +17,9 @@ Margin merupakan gap diluar border sedangkan Padding merupakan gap antara border
 - [x] Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
 Menurut saya, salah satu perbedaan besar diantara Tailwind dan Bootstrap adalah Tailwind hanya akan membentuk file CSS berdasarkan penggunaan styling yang kita pakai. Sedangkan Bootstrap sudah memiliki file CSS dengan ukuran besar karena sebelumnya telah terdapat banyak komponen yang telah didefinisikan. Penggunaan Tailwind CSS juga memerlukan pemahaman yang cukup mendalam mengenai CSS dan bagaimana menggabungkan kelas utilitas tersebut, sedangkan Bootstrap cukup ramah kepada pemula sebab telah banyak komponen yang telah didefinisikan sebelumnya. Dari perbedaan ini, Penggunaan Bootstrap akan lebih efisien jika kita ingin melakukan pengembangan dengan cepat tanpa memikirkan ukuran file CSS. Namun, jika kita ingin meminimalisir penggunaan file CSS yang tidak diperlukan, maka sebaiknya menggunakan Tailwind.
 </details>
----
+-----
 <details>
-<summary>## Tugas Individu 4.
+<summary>Tugas Individu 4</summary>
 >1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
 - [x] Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
@@ -50,7 +50,7 @@ Dengan adanya enkripsi yang baik dan aman dari `reverse engineering`, penggunaan
 </details>
 -----
 <details>
-<summary>## Tugas Individu 3
+<summary>Tugas Individu 3</summary>
 
 >1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
@@ -90,7 +90,7 @@ Data pada `JSON` ditampilkan dalam bentuk yang mirip dengan `Dictionary` dan `li
  </details>
 -----
 <details>
-<summary>## Tugas Individu 2
+<summary>Tugas Individu 2</summary>
 >1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
  - [x] Membuat sebuah proyek Django baru.
