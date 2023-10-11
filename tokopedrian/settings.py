@@ -11,13 +11,13 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 from pathlib import Path
-import environ # Tambahkan kode berikut
-import os # Tambahkan kode berikut
+import environ 
+import os 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env() # Tambahkan kode berikut
+env = environ.Env() 
 
 
 # Quick-start development settings - unsuitable for production

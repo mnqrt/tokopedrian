@@ -81,37 +81,5 @@ async function refreshProducts(){
     document.getElementById("product_cards").innerHTML = htmlString
 }
 
-
-async function cobaFetch() {
-    const response = await fetch('https://www.googleapis.com/books/v1/volumes/_ojXNuzgHRcC');
-    const data = await response.json();
-    
-    if (!data.items) {
-        console.error('No items found in the response');
-        return;
-    }
-
-    for (const item of data.items) {
-        const bookInfo = item.volumeInfo;
-        console.log(bookInfo);
-        
-        const postData = {
-            name: bookInfo.title,
-            description: bookInfo.description
-        };
-        
-        const postResponse = await fetch('/add-new-data/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(postData)
-        });
-
-        console.log('Data posted:', postResponse);
-    }
-}
-
 refreshProducts()
-cobaFetch()
 document.getElementById("button_add").onclick = addProduct
