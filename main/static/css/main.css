@@ -1,0 +1,51 @@
+
+.cust-button{
+    width: 30px;
+}
+
+.btn{
+    height: 25px;
+    border: 1px solid rgba(56, 83, 94, 0.5);
+    text-align: center;
+}
+
+.btn:hover {
+    border: 1px solid rgba(56, 83, 94, 0.3);
+}
+
+.delete-button{
+    border: 1px solid rgba(233, 32, 42, 0.5);
+    color: rgba(233, 32, 42);
+}
+
+.delete-button:hover {
+    border: 1px solid rgba(233, 32, 42, 0.3);
+    color: rgba(233, 32, 42, 0.7);
+}
+
+.edit-button{
+    border: 1px solid rgba(230, 203, 0, 0.5);
+    color: rgba(230, 203, 0);
+}
+
+.edit-button:hover {
+    border: 1px solid rgba(230, 203, 0, 0.3);
+    color: rgba(230, 203, 0, 0.7);
+}
+
+.last-product{
+    background-color: aquamarine;
+}
+
+.card-body p {
+    margin-bottom: 3px; /* Adjust this value to control the spacing */
+}
+
+.row {
+    @include media-breakpoint-only(lg) {
+        column-count: 4;
+    }
+    @include media-breakpoint-only(xl) {
+        column-count: 5;
+    }
+}

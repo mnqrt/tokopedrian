@@ -2,6 +2,31 @@
 `Beli anting dengan durian, kalau shopping di Tokopedrian!`
 
 <details>
+<summary>Tugas Individu 6</summary>
+
+>1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+Synchronous programming melaksanakan program secara berurutan, sehingga jika kita memanggil fungsi `A()` kemudian `B()`, maka program akan melaksanakan `B()` setelah `A()` selesai. Asynchronous melaksanakan operasi secara bersamaan, fungsi yang mungkin memakan waktu dilaksanakan di latar belakang. 
+
+>2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Event-driven programming meripakan merespon suatu kejadian ketika terdapat suatu trigger yang terjadi. Salah satu contohnya adalah button counter dimana button tersebut akan menambahkan suatu nilai dengan satu hanya jika button dipencet (event).
+
+>3. Jelaskan penerapan asynchronous programming pada AJAX.
+Pada AJAX, asynchronous programming dilakukan dengan mengirimkan data ke balik layar. Sehingga ketika kita melakukan request, kita hanya akan melakukan re-rendering pada sebagian elemen data pada halaman web. Akibatnya, bagian lain yang tidak berhubungan tidak perlu di-reload sehingga kita tidak perlu refresh seluruh halaman.
+
+>4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+Konsep-konsep pada Fetch API merupakan konsep yang baru bagi saya (seperti promise, await, fetch) sehingga perlu memahami lebih lanjut jika dibandingkan dengan jQuery. Namun, Fetch API lebih kuat dan fleksibel dalam mengelola HTTP Request dan dapat dengan mudah mengelola berbagai jenis data (seperti JSON, blob, dsb.). Lebih lanjut, Fetch API lebih ringan dibandingkan jQuery yang perlu untuk import library sehingga mungkin terdapat overhead. Mempertimbangkan Fetch API yang lebih modern dan terus berkembang, sebaiknya kita menggunakan Fetch API
+
+>5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+- [x] Mengubah kode tabel data item agar dapat mendukung AJAX GET dan melakukan pengambilan task menggunakan AJAX GET.
+Saya menggunakan AJAX GET pada fungsi asinkronus getProduct yang berfungsi untuk mengirimkan request GET dengan melakukan fetch, kemudian file yang saya dapatkan saya ubah ke file json. Fungsi ini dapat saya gunakan lagi lebih lanjut pada refreshProduct() yang berfungsi untuk melakukan rendering pada seluruh Product.
+
+- [x] Membuat tombol yang membuka sebuah modal dengan form untuk menambahkan item.
+Tombol tersebut ketika dipencet, akan menampilkan suatu modal(yang sebelumnya hidden) yang berfungsi untuk mengisi data. Kemudian setelah mengisi semua data yang diperlukan, kita hanya perlu memencet button `Add Product` yang ketika diklik, akan memanggil fungsi addProduct yang melakukan fetch pada semua data pada form. Data tersebut kemudian dimasukkan kepada FormData yang akan disave sehingga membentuk suatu product baru. Product tersebut akan ditampilkan pada Card. Pada fetch di addProduct, kita memanggil fungsi `add_product_ajax` yang telah didefinisikan pada `views.py` kemudian di include dan diimport pada `urlpatterns` di `urls.py`. Setelah semua itu selesai, kita akan memanggil `refreshProduct` yang mendefinisikan ulang isi HTML dari `Products` dengan bentuk `card`, di akhir, kita `return false` agar tidak perlu refresh halaman `main.html`. Sehingga yang kita lakukan adalah rendering card baru saja.
+
+---
+
+<details>
 <summary>Tugas Individu 5</summary>
 
 >1. Menjawab beberapa pertanyaan berikut pada README.md pada root folder (silakan modifikasi README.md yang telah kamu buat sebelumnya; tambahkan subjudul untuk setiap tugas).

@@ -1,15 +1,17 @@
 import datetime
 from django.contrib.auth.forms import UserCreationForm
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages  
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.core import serializers
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from main.forms import ProductForm
 from django.urls import reverse
 from main.models import Product
+
 
 def register(request):
     form = UserCreationForm()
@@ -47,7 +49,6 @@ def logout_user(request):
 @login_required(login_url='/login')  
 def show_main(request):
     products = Product.objects.filter(user=request.user)
-
     context = {
         'name': request.user.username,
         'class': 'PBP D', 
@@ -88,28 +89,32 @@ def show_json_by_id(request, id):
 
 
 '''Tugas 4----------------------------------------------------------------------------------------------------------------'''
-
+@csrf_exempt
 def delete_product(request, id):
-    current_product = Product.objects.get(pk=id)
-    current_product.delete()
+    if request.method == 'DELETE':
+        current_product = Product.objects.get(pk=id)
+        current_product.delete()
+        return HttpResponse(b"DELETED PRODUCT SUCCESSFULLY", status=200)
     return HttpResponseRedirect(reverse('main:show_main'))
 
+@csrf_exempt
 def add_amount(request, id):
     current_product = Product.objects.get(pk=id)
     current_product.amount += 1
     current_product.save()
-    return HttpResponseRedirect(reverse('main:show_main'))
+    return HttpResponse(b"ADDED PRODUCT SUCCESSFULLY", status=200)
 
+@csrf_exempt
 def decrement_amount(request, id):
     current_product = Product.objects.get(pk=id)
     current_product.amount -= 1
     if current_product.amount == 0 :
         return delete_product(request, id)
     current_product.save()
-    return HttpResponseRedirect(reverse('main:show_main'))
+    return HttpResponse(b"DECREMENTED PRODUCT SUCCESSFULLY", status=200)
 
 '''Tugas 5----------------------------------------------------------------------------------------------------------------'''
-
+@csrf_exempt
 def edit_product(request, id):
     # Get product berdasarkan ID
     product = Product.objects.get(pk = id)
@@ -134,3 +139,42 @@ def show_json_by_user(request):
 def show_xml_by_user(request):
     data = Product.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+'''Tugas 6----------------------------------------------------------------------------------------------------------------'''
+def get_product_json(request):
+    product_item = Product.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', product_item))
+
+@csrf_exempt
+def add_product_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        amount = request.POST.get("amount")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_product = Product(name=name, price=price, amount=amount, description=description, user=user)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+
+@csrf_exempt
+def edit_product_ajax(request, id):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        amount = request.POST.get("amount")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_product = Product(name=name, price=price, amount=amount, description=description, user=user)
+        product = Product.objects.get(pk=id)
+        product = new_product
+        product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
