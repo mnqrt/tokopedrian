@@ -58,6 +58,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://example.com']
+
 ROOT_URLCONF = 'tokopedrian.urls'
 
 TEMPLATES = [

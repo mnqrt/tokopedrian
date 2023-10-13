@@ -1,2 +1,2 @@
 release: django-admin migrate --noinput
-web: gunicorn project_name.wsgi
+web: gunicorn tokopedrian.wsgi
